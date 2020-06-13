@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+}
+
+.game-setup {
+    display: inline-block;
+    border-style: solid;
+    border-color: brown;
+    height: 80px;
+    text-align: center;
+    width: 80%;
+}
+
+.number-of-players {
+    border: 1px solid red;
+    float: left;
+    height: 80px;
+    width: 49.5%;
+}
+
+.game-difficulty {
+    border: 1px solid blue;
+    float: right;
+    height: 80px;
+    width: 49.5%;
+}
