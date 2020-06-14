@@ -2,20 +2,22 @@
 //   addEventHanders();
 // };
 
-// Create Deck
-const createDeck = (numberOfCards) => {
+//Create Deck
+const deck = () => {
     let deck = [];
-    const suits = ["Spades", "Clubs", "Hearts", "Diamonds"];
+    let suits = ['Spades', 'Clubs', 'Hearts', 'diamonds'];
     for (let suit of suits) {
-        let card = [suit, 0];
-        for (let i = 1; 1 <= numberOfCards; i++) {
-            card[1] = i;
-            deck.push(card);
+        let cardsToAdd = [];
+        let card = [0, suit];
+        for (let i = 1; i < 14; i++) {
+            card = [i, suit];
+            cardsToAdd.push(card);
         }
+
+        deck.push(cardsToAdd);
     }
     console.log(deck);
-};
-
+}
 // Deal Deck to each player
 // Players flip cards over in order
 // If Royal or Ace is turned over, begin Rat Screw
