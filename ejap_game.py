@@ -50,29 +50,19 @@ def createDeck():
 
 
 def shuffleDeck(deckToShuffle):
-    topHalf = []
-    bottomHalf = []
+    x = int(len(deckToShuffle))
     shuffledDeck = []
 
-    # Separate top half of deck
-    for i in range(1, len(deckToShuffle)):
-        topHalf.append(deckToShuffle[i])
-
-    # Separate bottom half of deck
-    for card in deckToShuffle:
-        bottomHalf.append(card)
-
-    while len(shuffledDeck) != len(deckToShuffle):
-        shuffledDeck.append(topHalf[len(topHalf)-1])
-        topHalf.pop()
-        shuffledDeck.append(bottomHalf[len(bottomHalf)-1])
-        bottomHalf.pop()
+    for i in range(0, x):
+        randCard = randint(0, len(deckToShuffle))
+        shuffledDeck.append(randCard)
 
     return shuffledDeck
 
 
 createDeck()
-fullDeck = shuffleDeck(fullDeck)
+fullDeck = list(fullDeck)
+currentDeck = shuffleDeck(fullDeck)
+print(len(currentDeck))
 
-for card in fullDeck:
-    print("Card: ", card.value, " of ", card.suit)
+# print("You drew a : ", test.value, test.suit)
