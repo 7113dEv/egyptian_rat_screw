@@ -1,5 +1,5 @@
 from enum import Enum, IntEnum
-from random import *
+import random
 
 # Initializing Deck
 fullDeck = []
@@ -48,21 +48,38 @@ def createDeck():
             fullDeck.append(playingCard(card(c), suit(s)))
     return fullDeck
 
+# Shuffle a given deck n times
 
-def shuffleDeck(deckToShuffle):
-    x = int(len(deckToShuffle))
-    shuffledDeck = []
 
-    for i in range(0, x):
-        randCard = randint(0, len(deckToShuffle))
-        shuffledDeck.append(randCard)
+def shuffleDeck(deckToShuffle, numOfShuffles):
+
+    while numOfShuffles > 0:
+
+        x = int(len(deckToShuffle))
+        shuffledDeck = []
+
+        for i in range(0, x):
+            randCard = randint(0, len(deckToShuffle)-1)
+            card = deckToShuffle.pop(randCard)
+            shuffledDeck.append(card)
+
+        numOfShuffles -= 1
 
     return shuffledDeck
 
+# Shuffles a deck AS A LIST
+
+
+def test(deck):
+    return random.shuffle(deck)
+
+
+def printDeck(deck):
+    for card in deck:
+        print(card.value, " of ", card.suit)
+
 
 createDeck()
-fullDeck = list(fullDeck)
-currentDeck = shuffleDeck(fullDeck)
-print(len(currentDeck))
-
-# print("You drew a : ", test.value, test.suit)
+currentDeck = list(fullDeck)
+test(currentDeck)
+printDeck(currentDeck)
